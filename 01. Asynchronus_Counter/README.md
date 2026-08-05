@@ -64,6 +64,9 @@ The 3-bit down counter configures inverted output clocking (`Qb` / `Q_bar`) usin
 | 9.00 µs | 1 | 1 | 1 | 1 | 1 | 1 | 1 | 0 | 7 | Count 7 (`111`) |
 | 10.00 µs | 1 | 1 | 0 | 0 | 0 | 0 | 0 | 1 | 0 | Rollover (`000`) |
 
+<img width="1628" height="845" alt="Screenshot 2026-08-05 235717" src="https://github.com/user-attachments/assets/bd6a26ca-ac8c-4795-bbfa-500cbfe33851" />
+<img width="1627" height="857" alt="Screenshot 2026-08-06 000029" src="https://github.com/user-attachments/assets/e51ba2c4-b763-42ff-abbd-4efe7a1bffc5" />
+
 ---
 
 ### 02. 3-BIT ASYNCHRONOUS UP COUNTER (`bit_3_asyn_up_counter`)
@@ -81,6 +84,9 @@ The 3-bit down counter configures inverted output clocking (`Qb` / `Q_bar`) usin
 | 8.00 µs | 6 | 1 | 1 | 1 | 0 | 6 | Increment (`101` → `110`) |
 | 9.00 µs | 7 | 1 | 1 | 1 | 1 | 7 | Maximum Count (`111`) |
 | 10.00 µs | 8 (Overflow) | 1 | 0 | 0 | 0 | 0 | Rollover (`111` → `000`) |
+
+<img width="1723" height="881" alt="Screenshot 2026-08-06 000122" src="https://github.com/user-attachments/assets/159c54a7-46c0-45ac-8d71-e3d0f74545a1" />
+
 
 ---
 
