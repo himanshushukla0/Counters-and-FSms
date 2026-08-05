@@ -52,18 +52,17 @@ The 3-bit down counter configures inverted output clocking ($\bar{Q}$) using int
 
 **Description**: A 3-bit ripple counter capturing `CLK`, `Clr` reset, intermediate stage dummy outputs (`Q0_DUMMY`, `Q1_DUMMY`), and internal nets (`XLXN_3`). When `Clr` is asserted (HIGH), all outputs reset to 0. Upon releasing `Clr`, the counter increments on each negative clock edge.
 
-| Time / Pulse | CLK | Clr | Q2 ($2^2$) | Q1 ($2^1$) | Q0 ($2^0$) | Q1_DUMMY | Q0_DUMMY | XLXN_3 | Output Count | State |
+| Time / Timestamp | CLK | Clr | Q2 ($2^2$) | Q1 ($2^1$) | Q0 ($2^0$) | Q1_DUMMY | Q0_DUMMY | XLXN_3 | Output Count | State / Description |
 | :---: | :---: | :---: | :---: | :---: | :---: | :---: | :---: | :---: | :---: | :---: |
-| 0.00 $\mu$s | 0 | 0 | 0 | 0 | 0 | 0 | 0 | 0 | 0 | Initial |
-| 0.50 $\mu$s | 1 | 1 | 0 | 0 | 0 | 0 | 0 | 1 | 0 | Active Reset (`Clr` HIGH) |
-| 1.00 $\mu$s | 0 | 1 | 0 | 0 | 1 | 0 | 1 | 1 | 1 | Count 1 ($001_2$) |
-| 2.00 $\mu$s | 0 | 1 | 0 | 1 | 0 | 1 | 0 | 1 | 2 | Count 2 ($010_2$) |
-| 3.00 $\mu$s | 0 | 1 | 0 | 1 | 1 | 1 | 1 | 1 | 3 | Count 3 ($011_2$) |
-| 4.00 $\mu$s | 0 | 1 | 1 | 0 | 0 | 0 | 0 | 1 | 4 | Count 4 ($100_2$) |
-| 5.00 $\mu$s | 0 | 1 | 1 | 0 | 1 | 0 | 1 | 1 | 5 | Count 5 ($101_2$) |
-| 6.00 $\mu$s | 0 | 1 | 1 | 1 | 0 | 1 | 0 | 1 | 6 | Count 6 ($110_2$) |
-| 7.00 $\mu$s | 0 | 1 | 1 | 1 | 1 | 1 | 1 | 1 | 7 | Count 7 ($111_2$) |
-| 8.00 $\mu$s | 0 | 1 | 0 | 0 | 0 | 0 | 0 | 1 | 0 | Rollover ($000_2$) |
+| 0.00 $\mu$s – 3.00 $\mu$s | 0/1 | 0 | 0 | 0 | 0 | 0 | 0 | 1 | 0 | Initial Reset (`Clr` LOW) |
+| 3.00 $\mu$s | 1 | 1 | 0 | 0 | 1 | 0 | 1 | 0 | 1 | Count 1 ($001_2$) |
+| 4.00 $\mu$s | 1 | 1 | 0 | 1 | 0 | 1 | 0 | 1 | 2 | Count 2 ($010_2$) |
+| 5.00 $\mu$s | 1 | 1 | 0 | 1 | 1 | 1 | 1 | 0 | 3 | Count 3 ($011_2$) |
+| 6.00 $\mu$s | 1 | 1 | 1 | 0 | 0 | 0 | 0 | 1 | 4 | Count 4 ($100_2$) |
+| 7.00 $\mu$s | 1 | 1 | 1 | 0 | 1 | 0 | 1 | 0 | 5 | Count 5 ($101_2$) |
+| 8.00 $\mu$s | 1 | 1 | 1 | 1 | 0 | 1 | 0 | 1 | 6 | Count 6 ($110_2$) *(Marker X1: 8.625 $\mu$s)* |
+| 9.00 $\mu$s | 1 | 1 | 1 | 1 | 1 | 1 | 1 | 0 | 7 | Count 7 ($111_2$) |
+| 10.00 $\mu$s | 1 | 1 | 0 | 0 | 0 | 0 | 0 | 1 | 0 | Rollover ($000_2$) |
 
 ---
 
@@ -71,17 +70,17 @@ The 3-bit down counter configures inverted output clocking ($\bar{Q}$) using int
 
 **Description**: A 3-bit binary ripple up counter built with cascaded `TFF` blocks (`XLXI_1`, `XLXI_2`, `XLXI_3`). The output $Q_0$ drives the clock of $Q_1$, and $Q_1$ drives the clock of $Q_2$, causing the output to increment sequentially from `000` ($0_{10}$) up to `111` ($7_{10}$).
 
-| Clock Pulse | Clr | Q2 ($2^2$) | Q1 ($2^1$) | Q0 ($2^0$) | Decimal Count | State / Transition |
-| :---: | :---: | :---: | :---: | :---: | :---: | :---: |
-| Initial | 0 | 0 | 0 | 0 | 0 | Reset State |
-| 1 | 1 | 0 | 0 | 1 | 1 | Increment ($000 \to 001$) |
-| 2 | 1 | 0 | 1 | 0 | 2 | Increment ($001 \to 010$) |
-| 3 | 1 | 0 | 1 | 1 | 3 | Increment ($010 \to 011$) |
-| 4 | 1 | 1 | 0 | 0 | 4 | Increment ($011 \to 100$) |
-| 5 | 1 | 1 | 0 | 1 | 5 | Increment ($100 \to 101$) |
-| 6 | 1 | 1 | 1 | 0 | 6 | Increment ($101 \to 110$) |
-| 7 | 1 | 1 | 1 | 1 | 7 | Maximum Count ($111_2$) |
-| 8 (Overflow) | 1 | 0 | 0 | 0 | 0 | Rollover ($111 \to 000$) |
+| Simulation Timestamp | Clock Pulse | Clr | Q2 ($2^2$) | Q1 ($2^1$) | Q0 ($2^0$) | Decimal Count | State / Transition |
+| :---: | :---: | :---: | :---: | :---: | :---: | :---: | :---: |
+| 0.00 $\mu$s – 3.00 $\mu$s | Initial | 0 | 0 | 0 | 0 | 0 | Reset State (`Clr` LOW) |
+| 3.00 $\mu$s | 1 | 1 | 0 | 0 | 1 | 1 | Increment ($000 \to 001$) |
+| 4.00 $\mu$s | 2 | 1 | 0 | 1 | 0 | 2 | Increment ($001 \to 010$) |
+| 5.00 $\mu$s | 3 | 1 | 0 | 1 | 1 | 3 | Increment ($010 \to 011$) |
+| 6.00 $\mu$s | 4 | 1 | 1 | 0 | 0 | 4 | Increment ($011 \to 100$) |
+| 7.00 $\mu$s | 5 | 1 | 1 | 0 | 1 | 5 | Increment ($100 \to 101$) |
+| 8.00 $\mu$s | 6 | 1 | 1 | 1 | 0 | 6 | Increment ($101 \to 110$) |
+| 9.00 $\mu$s | 7 | 1 | 1 | 1 | 1 | 7 | Maximum Count ($111_2$) |
+| 10.00 $\mu$s | 8 (Overflow) | 1 | 0 | 0 | 0 | 0 | Rollover ($111 \to 000$) |
 
 ---
 
@@ -89,14 +88,14 @@ The 3-bit down counter configures inverted output clocking ($\bar{Q}$) using int
 
 **Description**: A 3-bit binary ripple down counter using complementary outputs $\bar{Q}$ (`XLXN_3`, `XLXN_4`) to clock subsequent flip-flop stages. On each active clock transition, the stored binary count decrements sequentially from `111` ($7_{10}$) down to `000` ($0_{10}$).
 
-| Clock Pulse | Clr | Q2 ($2^2$) | Q1 ($2^1$) | Q0 ($2^0$) | Decimal Count | State / Transition |
-| :---: | :---: | :---: | :---: | :---: | :---: | :---: |
-| Initial | 1 | 1 | 1 | 1 | 7 | Preset / Start State |
-| 1 | 1 | 1 | 1 | 0 | 6 | Decrement ($111 \to 110$) |
-| 2 | 1 | 1 | 0 | 1 | 5 | Decrement ($110 \to 101$) |
-| 3 | 1 | 1 | 0 | 0 | 4 | Decrement ($101 \to 100$) |
-| 4 | 1 | 0 | 1 | 1 | 3 | Decrement ($100 \to 011$) |
-| 5 | 1 | 0 | 1 | 0 | 2 | Decrement ($011 \to 010$) |
-| 6 | 1 | 0 | 0 | 1 | 1 | Decrement ($010 \to 001$) |
-| 7 | 1 | 0 | 0 | 0 | 0 | Minimum Count ($000_2$) |
-| 8 (Underflow) | 1 | 1 | 1 | 1 | 7 | Rollover ($000 \to 111$) |
+| Simulation Timestamp | Clock Pulse | Clr | Q2 ($2^2$) | Q1 ($2^1$) | Q0 ($2^0$) | Decimal Count | State / Transition |
+| :---: | :---: | :---: | :---: | :---: | :---: | :---: | :---: |
+| 4.00 $\mu$s | Initial | 1 | 1 | 1 | 1 | 7 | Preset / Start State ($111_2$) |
+| 5.00 $\mu$s | 1 | 1 | 1 | 1 | 0 | 6 | Decrement ($111 \to 110$) |
+| 6.00 $\mu$s | 2 | 1 | 1 | 0 | 1 | 5 | Decrement ($110 \to 101$) |
+| 7.00 $\mu$s | 3 | 1 | 1 | 0 | 0 | 4 | Decrement ($101 \to 100$) |
+| 8.00 $\mu$s | 4 | 1 | 0 | 1 | 1 | 3 | Decrement ($100 \to 011$) |
+| 9.00 $\mu$s | 5 | 1 | 0 | 1 | 0 | 2 | Decrement ($011 \to 010$) |
+| 10.00 $\mu$s | 6 | 1 | 0 | 0 | 1 | 1 | Decrement ($010 \to 001$) |
+| 11.00 $\mu$s | 7 | 1 | 0 | 0 | 0 | 0 | Minimum Count ($000_2$) |
+| 12.00 $\mu$s | 8 (Underflow) | 1 | 1 | 1 | 1 | 7 | Rollover ($000 \to 111$) |
