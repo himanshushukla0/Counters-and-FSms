@@ -86,6 +86,8 @@ The 3-bit down counter configures inverted output clocking (`Qb` / `Q_bar`) usin
 | 10.00 µs | 8 (Overflow) | 1 | 0 | 0 | 0 | 0 | Rollover (`111` → `000`) |
 
 <img width="1723" height="881" alt="Screenshot 2026-08-06 000122" src="https://github.com/user-attachments/assets/159c54a7-46c0-45ac-8d71-e3d0f74545a1" />
+<img width="1602" height="815" alt="Screenshot 2026-08-06 000613" src="https://github.com/user-attachments/assets/dc010a8d-6fd7-4b2e-8570-758c0bd9cf66" />
+
 
 
 ---
@@ -105,6 +107,11 @@ The 3-bit down counter configures inverted output clocking (`Qb` / `Q_bar`) usin
 | 10.00 µs | 6 | 1 | 0 | 0 | 1 | 1 | Decrement (`010` → `001`) |
 | 11.00 µs | 7 | 1 | 0 | 0 | 0 | 0 | Minimum Count (`000`) |
 | 12.00 µs | 8 (Underflow) | 1 | 1 | 1 | 1 | 7 | Rollover (`000` → `111`) |
+
+<img width="1609" height="785" alt="Screenshot 2026-08-06 000735" src="https://github.com/user-attachments/assets/b750e546-4f27-4286-94b1-45cda21158ee" />
+<img width="1606" height="827" alt="Screenshot 2026-08-06 000804" src="https://github.com/user-attachments/assets/537007d6-e91e-4e36-b851-5989ca6e9470" />
+
+
 
 ---
 
