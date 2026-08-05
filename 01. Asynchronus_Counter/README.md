@@ -99,3 +99,10 @@ The 3-bit down counter configures inverted output clocking (`Qb` / `Q_bar`) usin
 | 10.00 µs | 6 | 1 | 0 | 0 | 1 | 1 | Decrement (`010` → `001`) |
 | 11.00 µs | 7 | 1 | 0 | 0 | 0 | 0 | Minimum Count (`000`) |
 | 12.00 µs | 8 (Underflow) | 1 | 1 | 1 | 1 | 7 | Rollover (`000` → `111`) |
+
+---
+
+
+> [!TIP]
+> **Key Conclusion**: Asynchronous counters excel in low-power, resource-constrained prescaling applications where simple logic overrides propagation speed requirements. For high-frequency FPGA implementations (such as Spartan-3A), synchronous counters are recommended to eliminate ripple delays, prevent decoding glitches, and satisfy strict static timing analysis (STA) constraints.
+
