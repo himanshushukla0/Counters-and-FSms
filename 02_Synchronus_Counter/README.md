@@ -53,6 +53,10 @@ In a synchronous counter, every flip-flop stage triggers on the exact same activ
 | 1,378,140.00 µs | 9 | 1 | 1 | 0 | 0 | 1 | `001` | 1 | Cycle Repeat (`000` → `001`) |
 
 *Note: Simulation trace captured from ISim waveform execution run at `1378153 µs` marker.*
+<img width="1587" height="829" alt="image" src="https://github.com/user-attachments/assets/76b2f593-8bc8-4cc7-b31a-5ade5e561e99" />
+<img width="1578" height="824" alt="image" src="https://github.com/user-attachments/assets/e8909894-4a19-4e37-a16e-e8ddfe0cc140" />
+
+
 
 ---
 
