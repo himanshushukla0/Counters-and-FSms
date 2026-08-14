@@ -64,6 +64,11 @@ Standard 4-bit binary counters naturally count through 16 states ($2^4 = 16$, fr
 
 *Note: Simulation trace captured from ISim waveform execution run with marker X1 at `11.000000 µs`.*
 
+<img width="1587" height="832" alt="Screenshot 2026-08-14 111004" src="https://github.com/user-attachments/assets/2fcdc935-f6e4-45f6-9906-0ca5d05768a9" />
+<img width="1589" height="823" alt="Screenshot 2026-08-14 111024" src="https://github.com/user-attachments/assets/363fe6af-d458-4954-b731-30b7fc5a989b" />
+
+
+
 ---
 
 ## State Transition & Reset Logic Summary
